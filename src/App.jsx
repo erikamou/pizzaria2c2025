@@ -1,56 +1,35 @@
-
-import { useState} from "react"
-
+import { useState } from "react"
 function App(){
-
-  const[nome, setNome] = useState('ronaldo')
-
-const Formulario = () => {
-
+  const [nome, setNome] = useState('Ronaldo')
+ 
+  const Formulario = (props) => {
+    return (
+      <div>
+       
+      <input placeholder={props.sombra} className="Nome" type="text" name="nome" onChange={(e)=>{setNome(e.target.value)}}/>
+ 
+      <button onClick={()=>{(props.mensagem !=null)? alert("TEXTO PADRAO") }} className="Botao">
+      {(props.textoBotao !=null) ? props.textoBotao : "Clique aqui"}
+      </button>
+      </div>
+    );
+ 
+  };
+ 
+ 
   return (
     <div>
-    
-     <input 
-    classname="nome" 
-    onChange={(e)=>{setNome(e.target.value)}}
-    name="nome"
-    type="text" />
-    <button
-    onClick={()=> {alert(nome)}}
-    classname="botao">
-    CLIQUE AQUI
-    </button>
-    </div>
-  )
-  }
-}
-const Formulario = () => {
-
-
-  return (
-    <div>
-      <h3>pizzaria 2c</h3>
-    <input 
-    classname="nome" 
-    onChange={(e)=>{setNome(e.target.value)}}
-    name="nome"
-    type="text" />
-    <button
-    onClick={()=> {alert(nome)}}
-    classname="botao">
-    CLIQUE AQUI
-    </button>
+      <h3>Pizzaria 2C</h3>
+      <Formulario sombra="Digite seu nome..." textoBotao="ENVIAR NOME"/>
+      <Formulario sombra="digite seu e-mail..."textoBotao="E-MAIL"/>
+      <Formulario  sombra="(11) 90000-000" textoBotao="CELULAR"/>
+      <Formulario  smensagem="mensagem enviada pelo app"textoBotao="E-MAIL"/>
+      <Formulario />
+      <Formulario />
+ 
     </div>
   )
 }
-
-  return (
-    <div>
-      <h3>pazzaria2c</h3>
-      <formulario/>
-      <formulario/>
-      <formulario/>
-    </div>
-  )
-
 export default App
+ 
+ 
