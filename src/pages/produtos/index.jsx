@@ -1,12 +1,15 @@
+import {useState, useEffect} from 'react'
+import axios from 'axios'
+
 const produtos = () => {
-
-
-    // Objeto de Lista de pizzas
-    const pizzas = [
-        'pizza muçarela',
-        'pizza calabresa',
-        'pizza portuguesa', 'pizza baiana', 'pizza frita'
-    ]
+  const [pizzas, setPizzas] = useState([])
+ // comsumir rotas com lista de produtos
+   axios.get("http://viacep.com.br/ws/01010000/json")
+   .then(response=>{
+        console.log(response.data)
+   })
+   .catch(error=>{console.log(error)})
+   
     // interaçao da lista de pizzas - pizza a pizza
     const listaPizzas = pizzas.map(pizza=><li>{pizza}</li>)
     return (
